@@ -1,0 +1,15 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/team/team",
+    "pages/game/game",
+    "pages/logs/logs",
+    "pages/result/result"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "面杀辅助程序",
+    "navigationBarTextStyle": "black"
+  }
+}
