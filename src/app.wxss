@@ -1,3 +1,5 @@
+@import "weui.wxss";
+
 /**app.wxss**/
 .container {
   height: 100%;
@@ -8,3 +10,26 @@
   padding: 200rpx 0;
   box-sizing: border-box;
 } 
+
+.player_list{
+  display: flex;
+  flex-direction: row; 
+  align-items: center;
+}
+.userinfo {
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  justify-content: space-between; 
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 10rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}

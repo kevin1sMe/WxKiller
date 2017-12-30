@@ -9,6 +9,6 @@
   </view>
   <view class="usermotto">
     <button bindtap="bindCreate" type="primary" class="create" >创建对局</button>
-    <button class="join">扫码加入</button>
+    <button bindtap="bindScanCode" class="join">扫码加入</button>
   </view>
 </view>

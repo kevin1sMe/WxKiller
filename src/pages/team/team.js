@@ -10,20 +10,43 @@ Page({
  
   data: {
     userInfo: {},
+    room_id: 0,
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
 
   ToGame: function () {
     wx.navigateTo({
-      url: '../game/game'
+      url: '../game/game',
     })
+  },
+
+  ToInvite: function () {
+    console.log("BindInviteFriend...., room_id:", this.data.room_id)
+    wx.request({
+      // 调用接口C
+      url: app.globalData.game_url + "/game/wx_qrcode",
+      method: 'POST',
+      data: {
+        room_id: this.data.room_id
+      },
+      success(res) {
+        // res是二进制流，后台获取后，直接保存为图片，然后将图片返回给前台
+        // 后台二进制怎么转图片？我也不会后台，学会了再贴代码
+        console.log("get resp succ, ", res)
+      }
+    })
+  
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log("show param room_id:", options.room_id)
+    if(options.room_id != undefined) {
+      this.setData({room_id: options.room_id})
+    }
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
