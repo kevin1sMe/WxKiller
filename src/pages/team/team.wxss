@@ -1,5 +1,5 @@
 /* pages/team/team.wxss */
 
 .control{
-  margin-top: 260rpx;
+  margin-top: 50rpx;
 }

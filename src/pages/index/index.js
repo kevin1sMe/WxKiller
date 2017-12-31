@@ -16,11 +16,52 @@ Page({
     })
   },
 
+
+  joinRoom: function (room_id) {
+    wx.request({
+      url: app.globalData.game_url + "/game/join_room",
+      method: 'POST',
+      data: {
+        nickName: this.data.userInfo.nickName,
+        avatarUrl: this.data.userInfo.avatarUrl,
+        gender: this.data.userInfo.gender,
+        room_id: room_id
+      },
+      header: {
+         'content-type': 'application/x-www-form-urlencoded'
+      },
+      success: function (res) {
+        console.log(res.data)
+        wx.navigateTo({
+          url: '../team/team?room_id=' + res.data.room_id
+        })
+      },
+      fail: function( res) {
+        console.log("加入对局失败", res)
+      }
+    })
+  },
   //注册扫码函数
   bindScanCode: function(){
+    var that = this
     wx.scanCode({
+      scanType: "qrCode",
       success: (res) => {
+        //FIXME 这里扫不出来有用的返回值，是因为没上线的缘故吗
         console.log(res)
+        wx.showModal({
+          title: '扫描出了个啥呢',
+          content: '快加入这个对局吧。。',
+          success: res=>{
+            if (res.confirm) {
+              console.log("确认加入")
+              //发送加入请求 FIXME
+              that.joinRoom(13)
+            } else {
+              console.log("取消加入")
+            }
+          }
+        })
       }
     })
   },
@@ -51,6 +92,17 @@ Page({
   },
 
   onLoad: function () {
+    wx.getStorage({
+      key: 'userInfo',
+      success: res => {
+        console.log("get userInfo from storage succ, ", res.data)
+        this.setData({userInfo : res.data})
+      },
+      fail: res => {
+        console.log("get userInfo from storage failed ")
+      }
+    })
+
     if (app.globalData.userInfo) {
       console.log("has globalData")
       this.setData({

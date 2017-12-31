@@ -22,9 +22,35 @@ App({
             success: res => {
               // 可以将 res 发送给后台解码出 unionId
               this.globalData.userInfo = res.userInfo
+              //wx.setStorageSync('userInfo', res.userInfo);
+              wx.setStorage({
+                key:"userInfo",
+                data: res.userInfo,
+                success : res => {
+                  console.log("setStorage succ", res)
+                },
+                fail: res => {
+                    console.log("setStorage failed, ", res)
+                }
+              });
+
               console.log("nickName:", res.userInfo.nickName)
               console.log("avatarUrl:", res.userInfo.avatarUrl)
               console.log("gender:", res.userInfo.gender)
+
+              var saveUserInfo
+              wx.getStorage({
+                key: 'userInfo',
+                success: res => {
+                  console.log("getStorage succ, ", res)
+                  saveUserInfo = res.data
+                    console.log("saveUserInfo = , ", saveUserInfo)
+                } ,
+                fail: res => {
+                  console.log("getStorage failed, ", res)
+                }
+              });
+              //console.log("saveUserInfo.nickName", saveUserInfo.nickName)
               // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
               // 所以此处加入 callback 以防止这种情况
               if (this.userInfoReadyCallback) {

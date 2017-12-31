@@ -1,11 +1,13 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/team/team",
-   
+    "pages/show_identity/show_identity",
     "pages/game/game",
+    "pages/team/team",
+    "pages/invite_code/invite_code",
     "pages/logs/logs",
     "pages/result/result"
+   
   ],
   "window": {
     "backgroundTextStyle": "light",

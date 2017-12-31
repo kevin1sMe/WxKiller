@@ -9,42 +9,51 @@ Page({
    */
 
   data: {
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    room_id: 13,
+    room_info: null
   },
 
 
+    //查看身份
+  showMyIdent : function(){
+      wx.navigateTo({
+          url: '../show_identity/show_identity?room_id=' + this.data.room_id
+      })
+    },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (this.data.canIUse) {
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
+            console.log("show param room_id:", options.room_id)
+        if (options.room_id != undefined) {
+            this.setData({room_id: options.room_id})
         }
-      })
-    }
+        var that = this
+
+        console.log("try get room info, room_id:", that.data.room_id)
+
+        //拉取这个room的信息
+        wx.request({
+            url: app.globalData.game_url + "/game/get_room",
+            method: 'POST',
+            data: {
+                room_id: that.data.room_id
+            },
+            header: {
+                'content-type': 'application/x-www-form-urlencoded'
+            },
+            success: function (res) {
+                console.log(res.data)
+                if(0 == res.data.ret) {
+                    that.setData({room_info: JSON.parse(res.data.room_info)})
+                    console.log("set room_info:", that.data.room_info)
+                }
+            },
+            fail: function (res) {
+                console.log("拉取房间信息失败")
+            }
+        })
+
   },
 
   /**
