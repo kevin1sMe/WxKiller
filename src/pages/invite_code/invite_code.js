@@ -25,7 +25,6 @@ Page({
       console.log("BindInviteFriend...., room_id:", this.data.room_id)
       var that = this
       wx.request({
-        // 调用接口C
         url: app.globalData.game_url + "/game/wx_qrcode",
         method: 'POST',
         data: {

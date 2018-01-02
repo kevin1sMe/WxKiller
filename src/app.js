@@ -5,12 +5,34 @@ App({
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
-
+     var that = this
     // 登录
     wx.login({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
-        console.log("login succ cb")
+        console.log("login succ cb", res)
+        wx.request({
+          url: that.globalData.game_url + "/game/get_openid",
+          method: 'POST',
+          data: {
+            code: res.code
+          },
+          header: {
+            'content-type': 'application/x-www-form-urlencoded'
+          },
+          success: function (res) {
+            if(res.statusCode == 200){
+              console.log("获取openid成功, openid:", res.data.openid)
+              that.globalData.openid = res.data.openid
+            }else {
+              console.log("获取openid失败, ret_code:", res.data.statusCode)
+            }
+           
+          },
+          fail: function (res) {
+            console.log("获取openid失败", res)
+          }
+        })
       }
     })
     // 获取用户信息
@@ -64,7 +86,8 @@ App({
   },
   globalData: {
     userInfo: null,
-    game_url: 'http://127.0.0.1:8080',
-    access_token: '5_Mj35wvTc6ADLof_04XXQ-YDk58YyAbW4YA3YwAvr7BdWnMR5QMYGkwqpkpfzMOQEMai4q6PIdp_o-jhK46jqZVlOG7VN8NZgQw8wfXQMTsYG3t1fuukzJbMAIo8sNhi8OfNhVfTnMltkwTTEPUNaADALQJ'
+    //game_url: 'http://127.0.0.1:8080',
+    game_url: 'https://game.gameapp.club',
+    openid: null
   }
 })

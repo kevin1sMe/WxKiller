@@ -1,18 +1,38 @@
 <!--pages/team/team.wxml-->
 <view class="page">
     <view class="page__bd">
-        <view class="weui-grids">
+        <view class="weui-flex player_list">
             <block wx:for="{{room_info.members}}" wx:key="*this">
-                <navigator url="" class="weui-grid" hover-class="weui-grid_active">
-                    <image class="weui-grid__icon" class="userinfo-avatar" src="{{item.avatarUrl}}" background-size="cover"/>
-                    <view class="weui-grid__label" class="userinfo-nickname">{{item.nickName}}</view>
+                <navigator url="" class="weui-flex__item" class="player" hover-class="">
+                    <image class="userinfo-avatar" src="{{item.avatarUrl}}" background-size="cover"/>
+                    <view class="userinfo-nickname">{{item.nickName}}</view>
                 </navigator>
             </block>
         </view>
+        <view>
+            <view class="setting">
+                <text>设定杀手数：</text>
+                <picker bindchange="bindKillerChange" value="{{killer_index}}" range="{{killer_array}}">
+                    <button type="default" class="">{{killer_num}}</button>
+                </picker>
+            </view>
+                        <view class="setting">
+                <text>设定警察数：</text>
+                <picker bindchange="bindPoliceChange" value="{{police_index}}" range="{{killer_array}}">
+                    <button type="default" class="">{{police_num}}</button>
+                </picker>
+            </view>
+                                    <view class="setting">
+                <text>法官大人：</text>
+                <picker bindchange="bindJudgeChange" value="{{judge_index}}" range="{{player_list}}">
+                    <button type="default" class="">{{judge_name}}</button>
+                </picker>
+            </view>
+        </view>
     </view>
     <view class="control">
-        <button class="weui-btn" bindtap="ToGame">开始游戏</button>
-        <button class="weui-btn" bindtap="ToInvite">邀请朋友</button>
+        <button class="weui-btn mini-btn"  bindtap="ToPreview" type="primary" >开始游戏</button>
+        <button class="weui-btn mini-btn"  bindtap="ToInvite">邀请朋友</button>
     </view>
 </view>
 

@@ -23,6 +23,7 @@
   justify-content: space-between; 
 }
 
+
 .userinfo-avatar {
   width: 128rpx;
   height: 128rpx;

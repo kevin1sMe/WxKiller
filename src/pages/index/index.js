@@ -37,7 +37,7 @@ Page({
         })
       },
       fail: function( res) {
-        console.log("加入对局失败", res)
+        console.log("加入房间失败, room_id:", room_id)
       }
     })
   },
@@ -125,6 +125,7 @@ Page({
         success: res => {
           console.log("2222")
           app.globalData.userInfo = res.userInfo
+          wx.setStorageSync('userInfo', res.userInfo);
           this.setData({
             userInfo: res.userInfo,
             hasUserInfo: true

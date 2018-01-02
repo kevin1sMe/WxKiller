@@ -1,18 +1,26 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/show_identity/show_identity",
-    "pages/game/game",
     "pages/team/team",
     "pages/invite_code/invite_code",
+    "pages/game/game",
+    "pages/start_preview/preview",
+    "pages/show_identity/show_identity",
     "pages/logs/logs",
     "pages/result/result"
-   
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
+    "backgoundColor": "#f8f8f8",
+    "navigationBarBackgroundColor": "#f8f8f8",
     "navigationBarTitleText": "面杀辅助程序",
     "navigationBarTextStyle": "black"
-  }
+  },
+  "networkTimeout": {
+    "request": 3000,
+    "connectSocket": 3000,
+    "uploadFile": 5000,
+    "downloadFile": 5000
+  },
+  "debug": true
 }

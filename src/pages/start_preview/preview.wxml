@@ -1,0 +1,44 @@
+<!--pages/start_preview/preview.wxml-->
+<view class="page">
+    <view class="page__bd">
+
+        <view class="weui-form-preview">
+
+            <view class="weui-form-preview__hd">
+
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">游戏</view>
+                    <view class="weui-form-preview__value_in-hd">天黑请闭眼</view>
+                    </view>
+            </view>
+            <view class="weui-form-preview__bd">
+
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">总人数</view>
+                    <view class="weui-form-preview__value">{{total_player}}人</view>
+                </view>
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">杀手数</view>
+                    <view class="weui-form-preview__value">{{killer_num}}人</view>
+                </view>
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">警察数</view>
+                    <view class="weui-form-preview__value">{{police_num}}人</view>
+                </view>
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">平民数</view>
+                    <view class="weui-form-preview__value">{{civilian_num}}人</view>
+
+                </view>
+                                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">法官</view>
+                    <view class="weui-form-preview__value">{{judge_name}}</view>
+                </view>
+            </view>
+            <view class="weui-form-preview__ft">
+                <navigator class="weui-form-preview__btn weui-form-preview__btn_default" hover-class="weui-form-prview__btn_active" open-type="navigateBack">重新设置</navigator>
+                <navigator url="{{confirm_url}}" class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-prview__btn_active"  open-type="redirect">确认</navigator>
+            </view>
+        </view>
+    </view>
+</view>

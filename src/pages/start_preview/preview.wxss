@@ -1,0 +1,6 @@
+/* pages/start_preview/preview.wxss */
+
+
+.weui-form-preview {
+    margin-top: 50px;
+}

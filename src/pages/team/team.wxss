@@ -1,5 +1,39 @@
 /* pages/team/team.wxss */
 
+.player_list{
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.player{
+  margin-right: 30rpx;
+  margin-left: 30rpx;
+  margin-bottom: 20rpx;
+}
+
+.userinfo-avatar {
+  width: 80rpx;
+  height: 80rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+  font-size: x-small;
+  text-align: center;
+}
+
 .control{
   margin-top: 50rpx;
 }
+
+.setting{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+/*.mini_btn{*/
+  /*width:40%;*/
+/*}*/
