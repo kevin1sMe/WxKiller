@@ -1,9 +1,10 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/team/team",
-    "pages/invite_code/invite_code",
     "pages/game/game",
+    "pages/team/team",
+    "pages/loading/loading",
+    "pages/invite_code/invite_code",
     "pages/start_preview/preview",
     "pages/show_identity/show_identity",
     "pages/logs/logs",

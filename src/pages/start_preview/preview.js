@@ -10,39 +10,8 @@ Page({
     killer_num:2,
     police_num:2,
     civilian_num:6,
-    judge_name: '我是大法官',
-    confirm_url:''
+    judge_name: '我是大法官'
   },
-
-    ToGame: function () {
-        var that = this
-        console.log("ToGame(), room_id:", that.data.room_id)
-        //创建对局
-        wx.request({
-            url: app.globalData.game_url + "/game/start_game",
-            method: 'POST',
-            data: {
-                room_id: that.data.room_id,
-                nickName: app.globalData.userInfo.nickName
-            },
-            header: {
-                'content-type': 'application/x-www-form-urlencoded'
-            },
-            success: function (res) {
-                console.log(res.data)
-                if(0 == res.data.ret) {
-                    wx.navigateTo({
-                        url: '../game/game?room_id=' + that.data.room_id
-                    })
-                }
-            },
-            fail: function (res) {
-                console.log("开始游戏失败, room_id", that.data.room_id)
-            }
-        })
-
-    },
-
 
     /**
    * 生命周期函数--监听页面加载
@@ -50,8 +19,9 @@ Page({
   onLoad: function (args) {
         console.log("show param args:", args)
         if (args.room_id != undefined) {
-            this.setData({room_id: args.room_id})
+            this.setData({room_id: args.room_id })
         }
+
         if (args.total_player != undefined) {
             this.setData({total_player: args.total_player})
         }

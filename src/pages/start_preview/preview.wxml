@@ -37,7 +37,7 @@
             </view>
             <view class="weui-form-preview__ft">
                 <navigator class="weui-form-preview__btn weui-form-preview__btn_default" hover-class="weui-form-prview__btn_active" open-type="navigateBack">重新设置</navigator>
-                <navigator url="{{confirm_url}}" class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-prview__btn_active"  open-type="redirect">确认</navigator>
+                <navigator url="/pages/loading/loading?room_id={{room_id}}" class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-prview__btn_active"  open-type="redirect">确认</navigator>
             </view>
         </view>
     </view>

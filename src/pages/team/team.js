@@ -22,6 +22,7 @@ Page({
         killer_num:0,
         police_num:0,
         civilian_num:4,
+        invite_url: app.globalData.game_url + "/img/invite.png",
         judge_name: '大法官'
     },
 

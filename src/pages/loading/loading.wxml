@@ -1,0 +1,14 @@
+<!--pages/loading/loading.wxml-->
+<view class="page">
+    <view class="page__bd">
+        <view class="show_progress">
+            <view class="">
+                <progress percent="{{value}}" show_info/>
+            </view>
+            <view>
+                <text class="tips"> 正在创建游戏，请稍候。。。</text>
+            </view>
+        </view>
+    </view>
+
+</view>

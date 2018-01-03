@@ -1,0 +1,14 @@
+/* pages/loading/loading.wxss */
+
+.show_progress {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 200rpx;
+    width: 90%;
+    padding-left: 20rpx;
+}
+
+.tips {
+    font-size: small;
+}

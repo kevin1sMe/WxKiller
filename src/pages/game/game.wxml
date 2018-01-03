@@ -1,17 +1,22 @@
 <!--pages/game/game.wxml-->
 <view class="page">
     <view class="page__bd">
-        <view class="weui-grids">
+        <view class="weui-flex player_list">
             <block wx:for="{{room_info.members}}" wx:key="*this">
-                <navigator url="" class="weui-grid" hover-class="weui-grid_active">
-                    <image class="weui-grid__icon" class="userinfo-avatar" src="{{item.avatarUrl}}" background-size="cover"/>
-                    <view class="weui-grid__label" class="userinfo-nickname">{{item.nickName}}</view>
+                <navigator url="" class="weui-flex__item" class="player" hover-class="">
+                    <image class="userinfo-avatar" src="{{item.avatarUrl}}" background-size="cover"/>
+                    <view class="userinfo-nickname">{{item.nickName}}</view>
                 </navigator>
             </block>
+
+            <blcok wx:if="{{total_player < 15}}" class="weui-flex__item" class="player" >
+                <image class="userinfo-avatar" src="{{invite_url}}" background-size="cover" bindtap="ToInvite"/>
+                <view class="userinfo-nickname">邀请好友</view>
+            </blcok>
         </view>
-    </view>
-    <view class="control">
-        <text>当前xx发言</text>
-        <button class="weui-btn" bindtap="showMyIdent">查看身份</button>
+        <view class="control">
+            <text>当前xx发言</text>
+            <button class="weui-btn" bindtap="showMyIdent">查看身份</button>
+        </view>
     </view>
 </view>
