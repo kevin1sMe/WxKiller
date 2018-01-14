@@ -1,3 +1,6 @@
 {
-  "enablePullDownRefresh": "true"
+  "enablePullDownRefresh": "true",
+  "usingComponents": {
+    "component-tag-name": "../components/role/role"
+  }
 }

@@ -4,15 +4,16 @@
   flex-wrap: wrap;
   justify-content: center;
   background-color: #f2f2f2;
-  padding-left: 15rpx;
-  padding-right: 15rpx;
+  padding-left: 5rpx;
+  padding-right: 5rpx;
 }
 
 .player{
-  margin-right: 30rpx;
-  margin-left: 30rpx;
-  margin-bottom: 20rpx;
+  margin-right: 10rpx;
+  margin-left: 10rpx;
+  margin-bottom: 10rpx;
 }
+
 
 .userinfo-avatar {
   width: 80rpx;

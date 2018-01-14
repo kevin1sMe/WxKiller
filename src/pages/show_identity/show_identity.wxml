@@ -1,6 +1,6 @@
 <!--pages/show_identity/show_identity.wxml-->
 <view class="page">
     <view class="page__bd">
-        <image class="weui-cell" src="{{identity_img}}" background-size="cover"/>
+        <image class="identity_size" mode="widthFix" src="{{identity_img}}" bindload="loadImgEnd" background-size="cover"/>
     </view>
 </view>

@@ -86,8 +86,9 @@ App({
   },
   globalData: {
     userInfo: null,
-    //game_url: 'http://127.0.0.1:8080',
-    game_url: 'https://game.gameapp.club',
+    game_url: 'http://127.0.0.1:8080',
+    //game_url: 'https://game.gameapp.club',
+    //game_url: 'https://122.152.220.73',
     openid: null
   }
 })

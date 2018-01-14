@@ -1,0 +1,20 @@
+<!--pages/role/role.wxml-->
+<view class="userinfo">
+    <view class="status">
+        <view class="flag">
+            <!--<text class="hidden">11</text>-->
+            <block wx:if="{{userIdx !=null}}" >
+                <text>{{userIdx}}</text>
+            </block>
+            <!--<text>a</text>-->
+            <!--<text>a</text>-->
+        </view>
+        <image bindtap="clickRole" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+        <view class="flag">
+            <image class="icon" mode="aspectFit" src="{{gun_img}}">警</image>
+            <image class="icon" mode="aspectFit" src="{{knife_img}}">匪</image>
+            <image class="icon" mode="aspectFit" src="{{leaf_img}}">民</image>
+        </view>
+    </view>
+    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+</view>

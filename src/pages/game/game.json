@@ -1,1 +1,5 @@
-{}
+{
+  "usingComponents": {
+    "component-tag-name": "../components/role/role"
+  }
+}

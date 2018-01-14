@@ -54,7 +54,18 @@ Page({
            judge_name: this.data.player_list[e.detail.value]
         })
     },
-
+    //bindPlayerPress: function(e) {
+    //    console.log("player press trigger, ", e)
+    //    wx.showActionSheet({
+    //        itemList: ['杀手', '警察', '平民'],
+    //        success: function(res) {
+    //            console.log(res.tapIndex)
+    //        },
+    //        fail: function(res) {
+    //            console.log(res.errMsg)
+    //        }
+    //    })
+    //},
 
     ToPreview: function () {
 
@@ -198,7 +209,19 @@ Page({
     /**
      * 用户点击右上角分享
      */
-    onShareAppMessage: function () {
-
+    onShareAppMessage: function (options) {
+        console.log("from:", options.from, " target:", options.target)
+        return {
+            title: '快来和我一起玩吧',
+            path: '/pages/index/index',
+            success: function(res) {
+                // 转发成功
+                console.log("转发成功")
+            },
+            fail: function(res) {
+                // 转发失败
+                console.log("转发失败")
+            }
+        }
     }
 })

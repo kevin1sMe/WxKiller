@@ -1,15 +1,17 @@
 {
   "pages": [
-    "pages/index/index",
     "pages/game/game",
     "pages/team/team",
-    "pages/loading/loading",
+    "pages/index/index",
     "pages/invite_code/invite_code",
+    "pages/loading/loading",
     "pages/start_preview/preview",
     "pages/show_identity/show_identity",
     "pages/logs/logs",
     "pages/result/result"
   ],
+
+  
   "window": {
     "backgroundTextStyle": "light",
     "backgoundColor": "#f8f8f8",

@@ -3,10 +3,14 @@
     <view class="page__bd">
         <view class="weui-flex player_list">
             <block wx:for="{{room_info.members}}" wx:key="*this">
-                <navigator url="" class="weui-flex__item" class="player" hover-class="">
-                    <image class="userinfo-avatar" src="{{item.avatarUrl}}" background-size="cover"/>
-                    <view class="userinfo-nickname">{{item.nickName}}</view>
-                </navigator>
+
+                <view class="weui-flex__item" class="player" bindlongpress="bindPlayerPress">
+                    <component-tag-name user-info="{{item}}" user-idx="{{index}}"></component-tag-name>
+                </view>
+                <!--<view class="weui-flex__item" class="player" bindlongpress="bindPlayerPress">-->
+                    <!--<image class="userinfo-avatar" src="{{item.avatarUrl}}" background-size="cover"/>-->
+                    <!--<view class="userinfo-nickname">{{item.nickName}}</view>-->
+                <!--</view>-->
             </block>
 
             <blcok wx:if="{{total_player < 15}}" class="weui-flex__item" class="player" >

@@ -4,4 +4,5 @@
   <image class="qr" src="{{img_url}}" mode="aspectFit">拉取图片</image>
   </view>
   <text class="tips"> 快快扫描二维码加入吧 </text>
+  <button type="default" bindtap="addOne"> 给我加个人 </button>
 </view>

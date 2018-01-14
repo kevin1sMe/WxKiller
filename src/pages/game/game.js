@@ -10,10 +10,28 @@ Page({
 
   data: {
     room_id: 13,
-    room_info: null
+    room_info: null,
+    itemList: ['杀手', '警察', '平民'],
   },
 
-
+    longPress: function (e) {
+       console.log("long press, ", e)
+        console.log("long press, ", e.currentTarget.dataset.nickname)
+        var who =  e.currentTarget.dataset.nickname
+        var that = this
+        wx.showActionSheet({
+            itemList: this.data.itemList,
+            success: function(res) {
+                var sel = that.data.itemList[res.tapIndex]
+                var title = [who, ' => ', sel].join("")
+                console.log("press idx:", res.tapIndex, " itemList", that.data.itemList, " sel:", sel, " title:", title)
+                wx.showToast({title: title, icon: 'success', duration: 1000})
+            },
+            fail: function(res) {
+                console.log(res.errMsg)
+            }
+        })
+    },
     //查看身份
   showMyIdent : function(){
       wx.navigateTo({
